@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cforbrxxh12oj"]
+
+[ext_resource type="PackedScene" uid="uid://cm4f73sc4cgou" path="res://Scenes/grid.tscn" id="1_em8y6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Grid" parent="." instance=ExtResource("1_em8y6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0679153, 0, 0.000588417)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5538, 9.21023, 21.7576)
