@@ -1,11 +1,185 @@
-[gd_scene load_steps=2 format=3 uid="uid://cforbrxxh12oj"]
+[gd_scene load_steps=20 format=3 uid="uid://cforbrxxh12oj"]
 
+[ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_cydn6"]
 [ext_resource type="PackedScene" uid="uid://cm4f73sc4cgou" path="res://Scenes/grid.tscn" id="1_em8y6"]
+[ext_resource type="Texture2D" uid="uid://5fq22a4708qx" path="res://Art/button.png" id="2_21xxm"]
+[ext_resource type="Texture2D" uid="uid://bbswvj2hv35oq" path="res://Art/Cereal_Guy.png" id="3_xqawi"]
+[ext_resource type="Texture2D" uid="uid://bdsmro1vb0j5a" path="res://Art/fuck-yeah.png" id="4_wjh73"]
+[ext_resource type="Texture2D" uid="uid://bnb4dtwkk4rho" path="res://Art/da-ladno.png" id="5_54ujs"]
+[ext_resource type="Texture2D" uid="uid://bm6sk42mcvxuq" path="res://Art/smagdzhek.png" id="6_kf72k"]
+[ext_resource type="Texture2D" uid="uid://dqksal0il64fb" path="res://Art/Trollface.png" id="7_66gyb"]
+[ext_resource type="Texture2D" uid="uid://bgu1hvar0013u" path="res://Art/безысходность.png" id="8_ui787"]
+[ext_resource type="Texture2D" uid="uid://dvvgeyocbfdog" path="res://Art/thanks.png" id="9_aa7t5"]
+[ext_resource type="Texture2D" uid="uid://c346ktbvvq7v2" path="res://Art/kidding-me.png" id="10_d57k3"]
+[ext_resource type="Texture2D" uid="uid://d0leqopg2cvax" path="res://Art/YOUJC.png" id="11_7n3s6"]
+[ext_resource type="Texture2D" uid="uid://boduy4cth77mv" path="res://Art/apu-apustaja.png" id="12_07ndh"]
+[ext_resource type="Texture2D" uid="uid://b8pg7leq6wl2" path="res://Art/honklhonk.png" id="13_uvf68"]
+[ext_resource type="Texture2D" uid="uid://7a5l63jrqlai" path="res://Art/degrasse.png" id="14_jpsmp"]
+[ext_resource type="PackedScene" uid="uid://x0ou1dsom1ld" path="res://Scenes/memoCard.tscn" id="15_snkma"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="Animation" id="Animation_rbfqq"]
+resource_name = "Success"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 0), Color(1, 1, 0, 1), Color(1, 1, 0, 0.196078), Color(1, 1, 0, 1), Color(1, 1, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 0), Color(1, 1, 0, 1), Color(1, 1, 0, 0.196078), Color(1, 1, 0, 1), Color(1, 1, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mo4n6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8oek3"]
+_data = {
+"RESET": SubResource("Animation_mo4n6"),
+"Success": SubResource("Animation_rbfqq")
+}
+
+[node name="MainScene" type="Node3D"]
+script = ExtResource("1_cydn6")
 
 [node name="Grid" parent="." instance=ExtResource("1_em8y6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0679153, 0, 0.000588417)
+Textures = [ExtResource("2_21xxm"), ExtResource("3_xqawi"), ExtResource("4_wjh73"), ExtResource("5_54ujs"), ExtResource("6_kf72k"), ExtResource("7_66gyb"), ExtResource("8_ui787"), ExtResource("9_aa7t5"), ExtResource("10_d57k3"), ExtResource("11_7n3s6"), ExtResource("12_07ndh"), ExtResource("13_uvf68"), ExtResource("14_jpsmp")]
+
+[node name="MemoCard" parent="Grid" instance=ExtResource("15_snkma")]
+visible = false
+
+[node name="MemoCard2" parent="Grid" instance=ExtResource("15_snkma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
+visible = false
+
+[node name="MemoCard3" parent="Grid" instance=ExtResource("15_snkma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 6.5, 0)
+visible = false
+
+[node name="MemoCard4" parent="Grid" instance=ExtResource("15_snkma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 0)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5538, 9.21023, 21.7576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71246, 9.21023, 25.8476)
+size = 20.469
+
+[node name="Timer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 117.0
+offset_bottom = 45.0
+
+[node name="Label" type="Label" parent="Timer"]
+layout_mode = 0
+offset_right = 47.0
+offset_bottom = 23.0
+text = "Time: "
+
+[node name="Time" type="Label" parent="Timer"]
+layout_mode = 0
+offset_left = 53.0
+offset_right = 117.0
+offset_bottom = 23.0
+text = "00:00:00"
+
+[node name="Counter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 40.0
+offset_right = 118.0
+offset_bottom = 80.0
+
+[node name="Label" type="Label" parent="Counter"]
+layout_mode = 0
+offset_right = 47.0
+offset_bottom = 23.0
+text = "Memes Count: "
+
+[node name="Count" type="Label" parent="Counter"]
+layout_mode = 0
+offset_left = 125.0
+offset_right = 189.0
+offset_bottom = 23.0
+text = "2
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8oek3")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 271.0
+offset_right = 66.0
+offset_bottom = 294.0
+theme_override_colors/font_color = Color(1, 1, 0, 0)
+text = "YEAH!!!"
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -73.0
+offset_top = 271.0
+offset_right = -18.0
+offset_bottom = 294.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 0, 0)
+text = "YEAH!!!"
+
+[node name="Help" type="Label" parent="."]
+offset_left = 970.0
+offset_top = 507.0
+offset_right = 1131.0
+offset_bottom = 647.0
+text = "To change difficulty
+use + and -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="Success" from="Grid" to="." method="_on_grid_success"]

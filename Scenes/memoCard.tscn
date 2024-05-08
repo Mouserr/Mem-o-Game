@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://x0ou1dsom1ld"]
+[gd_scene load_steps=10 format=3 uid="uid://x0ou1dsom1ld"]
 
 [ext_resource type="Script" path="res://Scripts/memoCard.gd" id="1_utixe"]
 [ext_resource type="Texture2D" uid="uid://dqksal0il64fb" path="res://Art/Trollface.png" id="2_3nh4s"]
@@ -19,21 +19,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_3iss5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Card:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_k8s1o"]
 resource_name = "FlipBack"
 tracks/0/type = "value"
@@ -49,11 +34,54 @@ tracks/0/keys = {
 "values": [Vector3(0, 3.14159, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_3iss5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Card:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Card/Front:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x7bjg"]
+resource_name = "Success"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Card/Front:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1qbn7"]
 _data = {
 "Flip": SubResource("Animation_pxaxb"),
 "FlipBack": SubResource("Animation_k8s1o"),
-"RESET": SubResource("Animation_3iss5")
+"RESET": SubResource("Animation_3iss5"),
+"Success": SubResource("Animation_x7bjg")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u4n58"]
@@ -63,6 +91,11 @@ size = Vector3(6, 6, 1)
 script = ExtResource("1_utixe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1qbn7")
+}
+
+[node name="SuccessPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1qbn7")
 }
